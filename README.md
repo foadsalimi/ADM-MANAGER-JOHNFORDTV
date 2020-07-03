@@ -13,7 +13,7 @@
 <h3 align="center">Installation</h3>
 
   ```html
-apt-get update && apt-get upgrade -y: wget https://raw.githubusercontent.com/johndesu090/ADM-MANAGER-JOHNFORDTV/master/adm.sh; chmod 777 adm.sh* && ./adm.sh*
+apt-get update && apt-get upgrade -y: https://raw.githubusercontent.com/johndesu090/ADM-MANAGER-JOHNFORDTV/master/adm.sh; chmod +x adm.sh && ./adm.sh
   ```
   
 <h2 align="center">Snapshots to be Uploaded</h2>
