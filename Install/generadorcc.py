@@ -14,31 +14,31 @@ def usage():
     print("generadorcc.py version:{}".format(version))
     print("")
     print("\033[1;31m               +------------------------------+")
-    print("               +\033[1;32m     GENERADOR DE BIN RS      \033[1;31m+")
+    print("               +\033[1;32m     BIN RS GENERATOR      \033[1;31m+")
     print("               +------------------------------+")
     print("")
     print("+---------------+")
-    print("+\033[1;32m Metodo de uso\033[1;31m +")
+    print("+\033[1;32m Method of use\033[1;31m +")
     print("+---------------+")
     print("")
-    print("\033[1;36m     python2 generadorcc.py -b     [Opciones de uso]")
-    print("     python2 generadorcc.py -h     Mensaje de ayuda")
+    print("\033[1;36m     python2 generadorcc.py -b     [Usage options]")
+    print("     python2 generadorcc.py -h     Help message")
     print("\033[1;31m")
     print("+-----------------+")
-    print("+\033[;32m Opciones de uso\033[1;31m +")
+    print("+\033[;32m Usage options\033[1;31m +")
     print("+-----------------+")
     print("")
-    print("\033[1;36m     -b, -bin          Formato de bin")
-    print("     -u, -cantidad     Cantidad de tarjetas a generar")
-    print("     -c, -ccv          Genera ccv al azar")
-    print("     -d, -date         Genera fechas al azar")
-    print("     -g, -guardar      Guarda las tarjetas en un archivo")
+    print("\033[1;36m     -b, -bin          Bin format")
+    print("     -u, -cantidad     Number of cards to generate")
+    print("     -c, -ccv          Randomly generate ccv")
+    print("     -d, -date         Generate random dates")
+    print("     -g, -guardar      Save cards to file")
     print("\033[1;31m")
     print("+----------------+")
-    print("+\033[;32m Ejemplo de uso\033[1;31m +")
+    print("+\033[;32m Example of use\033[1;31m +")
     print("+----------------+")
     print("")
-    print("\033[1;33m     CANTIDAD\033[0m")
+    print("\033[1;33m     QUANTITY\033[0m")
     print("")
     print("\033[1;36m     python2 generadorcc.py -b 123456xxxxxxxxxx -u 40 -d -c ")
     print("")
@@ -76,7 +76,7 @@ def parseOptions(argv):
         usage()
         sys.exit(2)
 
-#CHECKER BASADO EN ALGORITMO LUHN
+#CHECKER BASED ON ALGORITHM LUHN
 def cardLuhnChecksumIsValid(card_number):
     """ checks to make sure that the card passes a luhn mod-10 checksum """
 
@@ -96,7 +96,7 @@ def cardLuhnChecksumIsValid(card_number):
 
     return ( (sum % 10) == 0 )
 
-#GENERA UNA BASE DE BIN XXXXXXXXXXXXXXXX
+#GENERATE A BASE OF BIN XXXXXXXXXXXXXXX
 def ccgen(bin_format):
     out_cc = ""
     if len(bin_format) == 16:
