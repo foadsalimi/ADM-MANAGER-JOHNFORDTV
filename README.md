@@ -6,7 +6,8 @@
 
 <h3 align="center">Supported Linux Distribution</h3>
 <p align="center">
-  <a><img src="https://img.shields.io/badge/Support-Ubuntu%214-red.svg"></a>
+  <a><img src="https://img.shields.io/badge/Support-Ubuntu-red.svg"></a>
+  <a><img src="https://img.shields.io/badge/Support-Debian-red.svg"></a>
   
 
 <h3 align="center">Installation</h3>
