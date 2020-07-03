@@ -1,14 +1,3 @@
-﻿# ADM-MANAGER-JOHNFORDTV
-
-**Manager Script Repository**
-
-* A Linux based operating system. We recommend Ubuntu 14.04
-* It is recommended to use a new or formatted distro.
-
-## Installation
-
-apt-get update && apt-get upgrade -y: wget https://raw.githubusercontent.com/johndesu090/ADM-MANAGER-JOHNFORDTV/master/adm.sh; chmod 777 adm.sh* && ./adm.sh*
-
 <h1 align="center">ADM-MANAGER-JOHNFORDTV<img src="https://img.shields.io/badge/Version-2.0.1-blue.svg"></h1>
 
 <p align="center">This AutoScript is made by FordSenpai to minimize the time consumed and user involvement in setting up your VPS Panel</p>
