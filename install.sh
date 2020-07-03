@@ -15,7 +15,7 @@ SCPfrm="/etc/ger-frm"
 SCPfrm3="/etc/adm-lite"
 SCPinst="/etc/ger-inst"
 rm $HOME/adm.sh
-SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2pvaG5kZXN1MDkwL0FyYWJ1L21hc3Rlci9yZXF1ZXN0"
+SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2pvaG5kZXN1MDkwL0FETS1NQU5BR0VSLUpPSE5GT1JEVFYvbWFzdGVyL3JlcXVlc3Q="
 SUB_DOM='base64 -d'
 [[ $(dpkg --get-selections|grep -w "gawk"|head -1) ]] || apt-get install gawk -y &>/dev/null
 [[ $(dpkg --get-selections|grep -w "mlocate"|head -1) ]] || apt-get install mlocate -y &>/dev/null
@@ -190,10 +190,10 @@ sleep 1s
 updatedb
 if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "INVALID KEY!") ]]; then
    msg -bar2
-   msg -ama "$(source trans -b pt:${id} "BEM VINDO, OBRIGADO POR UTILIZAR"|sed -e 's/[^a-z -]//ig'): \033[1;31m[NEW-ULTIMATE]"
+   msg -ama "$(source trans -b pt:${id} "WELCOME, THANK YOU FOR USING"|sed -e 's/[^a-z -]//ig'): \033[1;31m[NEW-ULTIMATE]"
    [[ ! -d ${SCPinstal} ]] && mkdir ${SCPinstal}
    pontos="."
-   stopping="$(source trans -b pt:${id} "Verificando Atualizacoes"|sed -e 's/[^a-z -]//ig')"
+   stopping="$(source trans -b pt:${id} "Checking for Updates"|sed -e 's/[^a-z -]//ig')"
    for arqx in $(cat $HOME/lista-arq); do
    msg -verm "${stopping}${pontos}"
    wget -O ${SCPinstal}/${arqx} ${REQUEST}/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}" || error_fun
