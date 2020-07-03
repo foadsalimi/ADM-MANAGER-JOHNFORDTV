@@ -14,8 +14,8 @@ SCPusr="${SCPdir}/ger-user"
 SCPfrm="/etc/ger-frm"
 SCPfrm3="/etc/adm-lite"
 SCPinst="/etc/ger-inst"
-rm $HOME/Dankelthaher.sh
-SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RhbmtlbHRoYWhlck1hbmFnZXIvQURNLU1BTkFHRVItREFOS0VMVEhBSEVSL21hc3Rlci9yZXF1ZXN0"
+rm $HOME/adm.sh
+SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2pvaG5kZXN1MDkwL0FyYWJ1L21hc3Rlci9yZXF1ZXN0"
 SUB_DOM='base64 -d'
 [[ $(dpkg --get-selections|grep -w "gawk"|head -1) ]] || apt-get install gawk -y &>/dev/null
 [[ $(dpkg --get-selections|grep -w "mlocate"|head -1) ]] || apt-get install mlocate -y &>/dev/null
@@ -58,13 +58,13 @@ inst_components () {
 funcao_idioma () {
  echo -e " "
 msg -bar2
-cowsay -f eyes "BIENVENIDO Y GRACIAS POR UTILIZAR NEW-ADM OFICIAL BY DANKELTHAHER" | lolcat
-figlet ..dankelthaher.. | lolcat
+cowsay -f eyes "WELCOME AND THANKS FOR USING OFFICIAL NEW-ADM BY JOHNFORDTV" | lolcat
+figlet ..johndordtv.. | lolcat
  echo -e " "
 msg -bar2
-echo -e "\e[1;33mSelecione Un Idioma\e[0m"
+echo -e "\e[1;33mSelect a language\e[0m"
 msg -bar2
-declare -A idioma=( [1]="en \e[0;37mIngles \e[0m "  [2]="fr \e[0;37mFrances \e[0m "  [3]="de \e[0;37mAleman \e[0m "  [4]="it \e[0;37mItaliano \e[0m "  [5]="pl \e[0;37mPolaco \e[0m "  [6]="pt \e[0;37mPortugues \e[0m "  [7]="es \e[0;37mEspanol \e[0m "  [8]="tr \e[0;37mTurko \e[0m " )
+declare -A idioma=( [1]="en \e[0;37mEnglish \e[0m "  [2]="fr \e[0;37mFrench \e[0m "  [3]="de \e[0;37mGerman \e[0m "  [4]="it \e[0;37mItalian \e[0m "  [5]="pl \e[0;37mPolish \e[0m "  [6]="pt \e[0;37mPortuguese \e[0m "  [7]="es \e[0;37mSpanish \e[0m "  [8]="tr \e[0;37mTurkish \e[0m " )
 for ((i=1; i<=12; i++)); do
 valor1="$(echo ${idioma[$i]}|cut -d' ' -f2)"
 [[ -z $valor1 ]] && break
@@ -99,7 +99,7 @@ done
 msg -bar2
 unset selection
 while [[ ${selection} != @([1-8]) ]]; do
-echo -ne "\033[1;37mSELECIONE: " && read selection
+echo -ne "\033[1;37mSELECT: " && read selection
 tput cuu1 && tput dl1
 done
 pv="$(echo ${idioma[$selection]}|cut -d' ' -f1)"
@@ -107,8 +107,8 @@ pv="$(echo ${idioma[$selection]}|cut -d' ' -f1)"
 byinst="true"
 }
 install_fim () {
-msg -ama "$(source trans -b es:${id} "Instalación completa, utilice los comandos"|sed -e 's/[^a-z -]//ig')" && msg bar2
-echo -e " menu / adm" && msg -verm "$(source trans -b pt:${id} "Reinicie su servidor para completar la instalación"|sed -e 's/[^a-z -]//ig')"
+msg -ama "$(source trans -b es:${id} "Complete installation, use the commands"|sed -e 's/[^a-z -]//ig')" && msg bar2
+echo -e " menu / adm" && msg -verm "$(source trans -b pt:${id} "Restart your server to complete the installation"|sed -e 's/[^a-z -]//ig')"
 mkdir /etc/crondbl  > /dev/null 2>&1 
 mkdir /etc/rom  > /dev/null 2>&1
 mkdir /etc/bin  > /dev/null 2>&1
@@ -147,32 +147,32 @@ case $1 in
 "dados.zip")ARQ="${SCPfrm3}/";; #painel
 "painel.zip")ARQ="${SCPfrm3}/";; #painel
 "usercodes")ARQ="${SCPusr}/";; #User
-"openssh.sh")ARQ="${SCPinst}/";; #Instalacao
-"squid.sh")ARQ="${SCPinst}/";; #Instalacao
-"dropbear.sh")ARQ="${SCPinst}/";; #Instalacao
-"openvpn.sh")ARQ="${SCPinst}/";; #Instalacao
-"ssl.sh")ARQ="${SCPinst}/";; #Instalacao
-"ssld.sh")ARQ="${SCPinst}/";; #Instalacao
-"sslmanager.sh")ARQ="${SCPinst}/";; #Instalacao
-"errormanager.sh")ARQ="${SCPinst}/";; #Instalacao
-"shadown.sh")ARQ="${SCPinst}/";; #Instalacao
-"shadowsock.sh")ARQ="${SCPinst}/";; #Instalacao
-"shadowsocks.sh")ARQ="${SCPinst}/";; #Instalacao
-"shadown.sh")ARQ="${SCPinst}/";; #Instalacao
-"ssrrmu.sh")ARQ="${SCPinst}/";; #Instalacao
-"shadowsocks.sh")ARQ="${SCPinst}/";; #Instalacao
-"v2ray.sh")ARQ="${SCPinst}/";; #Instalacao
-"vdoray.sh")ARQ="${SCPinst}/";; #Instalacao
-"sockspy.sh"|"PDirect.py"|"PPub.py"|"PPriv.py"|"POpen.py"|"PGet.py")ARQ="${SCPinst}/";; #Instalacao
+"openssh.sh")ARQ="${SCPinst}/";; #Installation
+"squid.sh")ARQ="${SCPinst}/";; #Installation
+"dropbear.sh")ARQ="${SCPinst}/";; #Installation
+"openvpn.sh")ARQ="${SCPinst}/";; #Installation
+"ssl.sh")ARQ="${SCPinst}/";; #Installation
+"ssld.sh")ARQ="${SCPinst}/";; #Installation
+"sslmanager.sh")ARQ="${SCPinst}/";; #Installation
+"errormanager.sh")ARQ="${SCPinst}/";; #Installation
+"shadown.sh")ARQ="${SCPinst}/";; #Installation
+"shadowsock.sh")ARQ="${SCPinst}/";; #Installation
+"shadowsocks.sh")ARQ="${SCPinst}/";; #Installation
+"shadown.sh")ARQ="${SCPinst}/";; #Installation
+"ssrrmu.sh")ARQ="${SCPinst}/";; #Installation
+"shadowsocks.sh")ARQ="${SCPinst}/";; #Installation
+"v2ray.sh")ARQ="${SCPinst}/";; #Installation
+"vdoray.sh")ARQ="${SCPinst}/";; #Installation
+"sockspy.sh"|"PDirect.py"|"PPub.py"|"PPriv.py"|"POpen.py"|"PGet.py")ARQ="${SCPinst}/";; #Installation
 *)ARQ="${SCPfrm}/";; #Ferramentas
 esac
 mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 fun_ip
-wget -O /usr/bin/trans https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/ADM-ULTIMATE-NEW-FREE/master/Install/trans &> /dev/null
+wget -O /usr/bin/trans https://raw.githubusercontent.com/johndesu090/Arabu/master/Files/trans &> /dev/null
 msg -bar2
-msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY-DANKELTHAHER \033[1;33m]"
+msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY-JOHNFORDTV \033[1;33m]"
 [[ $1 = "" ]] && funcao_idioma || {
 [[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
  }
@@ -188,7 +188,7 @@ wget -O $HOME/lista-arq ${REQUEST}/lista-arq > /dev/null 2>&1 && echo -e "\033[1
    }
 sleep 1s
 updatedb
-if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") ]]; then
+if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "INVALID KEY!") ]]; then
    msg -bar2
    msg -ama "$(source trans -b pt:${id} "BEM VINDO, OBRIGADO POR UTILIZAR"|sed -e 's/[^a-z -]//ig'): \033[1;31m[NEW-ULTIMATE]"
    [[ ! -d ${SCPinstal} ]] && mkdir ${SCPinstal}
