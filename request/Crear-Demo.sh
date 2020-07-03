@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 Block="/etc/bin" && [[ ! -d ${Block} ]] && exit
 Block > /dev/null 2>&1
 rm -rf /etc/adm
@@ -47,25 +46,25 @@ rm -rf /tmp/$2
 exit" > /tmp/$2
 }
 
-echo -e "\033[1;96m   CREAR USUARIO POR TIEMPOS (Minutos)\n\033[1;97mLos Usuarios que cres en esta extencion se eliminaran\nautomaticamete pasando el tiempo designado\033[0m"
+echo -e "\033[1;96m   CREATE USER BY TIME (Minutes)\n\033[1;97mUsers that you create in this extension will be deleted \ automatically after the designated time\033[0m"
 msg -bar2
 
-echo -e "\033[1;91m[1]-\033[1;97mNombre del usuario:\033[0;37m"; read -p " " name
+echo -e "\033[1;91m[1]-\033[1;97mUser name:\033[0;37m"; read -p " " name
 if [[ -z $name ]]
 then
-echo "No a digitado el Nuevo Usuario"
+echo "The New User has not entered"
 exit
 fi
 if cat /etc/passwd |grep $name: |grep -vi [a-z]$name |grep -v [0-9]$name > /dev/null
 then
-echo -e "\033[1;31mUsuario $name ya existe\033[0m"
+echo -e "\033[1;31mUser $name already exists\033[0m"
 exit
 fi
-echo -e "\033[1;91m[2]-\033[1;97mContraseña para usuario $name:\033[0;37m"; read -p " " pass
-echo -e "\033[1;91m[3]-\033[1;97mTiempo de Duración En Minutos:\033[0;37m"; read -p " " tmp
+echo -e "\033[1;91m[2]-\033[1;97mUser password $name:\033[0;37m"; read -p " " pass
+echo -e "\033[1;91m[3]-\033[1;97mDuration Time In Minutes:\033[0;37m"; read -p " " tmp
 if [ "$tmp" = "" ]; then
 tmp="30"
-echo -e "\033[1;32mFue Definido 30 minutos Por Defecto!\033[0m"
+echo -e "\033[1;32mIt was defined 30 minutes by default!\033[0m"
 msg -bar2
 sleep 2s
 fi
@@ -80,14 +79,14 @@ echo "nohup /tmp/$name & >/dev/null" > /tmp/cmd
 /tmp/cmd 2>/dev/null 1>/dev/null
 rm -rf /tmp/cmd
 touch /etc/adm/usuarios/$name
-echo "senha: $pass" >> /etc/adm/usuarios/$name
-echo "data: ($tmp)Minutos" >> /etc/adm/usuarios/$name
+echo "password: $pass" >> /etc/adm/usuarios/$name
+echo "data: ($tmp)Minutes" >> /etc/adm/usuarios/$name
 msg -bar2
-echo -e "\033[1;93m     ¡¡Usuario Creado!!\033[0m"
+echo -e "\033[1;93m     ¡¡User Created!!\033[0m"
 msg -bar2
-echo -e "\033[1;36mUsuario: \033[0m$name"
-echo -e "\033[1;36mContraseña: \033[0m$pass"
-echo -e "\033[1;36mMinutos de Duración: \033[0m$tmp"
+echo -e "\033[1;36mUser: \033[0m$name"
+echo -e "\033[1;36mPassword: \033[0m$pass"
+echo -e "\033[1;36mDuration Minutes: \033[0m$tmp"
 msg -bar2
 exit
 fi
