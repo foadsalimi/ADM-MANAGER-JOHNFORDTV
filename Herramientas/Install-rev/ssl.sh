@@ -21,7 +21,7 @@ done
 echo -e " \033[1;33m[\033[1;31m********************\033[1;33m] - \033[1;32m100%\033[0m"
 sleep 1s
 }
-API_TRANS="aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9sZnlxZGI5NnJkejl5bW8vdHJhbnM/ZGw9MA=="
+API_TRANS="aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9qaHBubDg4MHZjYXQ1b3QvdHJhbnM/ZGw9MA=="
 SUB_DOM='base64 -d'
 wget -O /usr/bin/trans $(echo $API_TRANS|$SUB_DOM) &> /dev/null
 mportas () {
@@ -36,28 +36,28 @@ echo -e "$portas"
 }
 ssl_stunel () {
 [[ $(mportas|grep stunnel4|head -1) ]] && {
-echo -e "${cor[2]}Parando Stunnel"
+echo -e "${cor[2]}Stopping Stunnel"
 echo -e "$barra"
 fun_bar "service stunnel4 stop"
 echo -e "$barra"
-echo -e "${cor[2]}Parado Con exito!"
+echo -e "${cor[2]}Stopped Successfully!"
 echo -e "$barra"
 return 0
 }
-echo -e "${cor[3]}Que puerto desea abrir como SSL Openssh"
+echo -e "${cor[3]}What port do you want to open as SSL Openssh"
 echo -e "$barra"
     while true; do
     read -p " Puerto SSL: " SSLPORT
     [[ $(mportas|grep -w "$SSLPORT") ]] || break
-    echo -e "${cor[3]}esta puerta está en uso"
+    echo -e "${cor[3]}this port is in use"
     unset SSLPORT
     done
 echo -e "$barra"
-echo -e "${cor[4]}Instalando SSL"
+echo -e "${cor[4]}Installing SSL"
 echo -e "$barra"
 fun_bar "apt-get install stunnel4 -y"
 echo -e "$barra"
-echo -e "${cor[4]}Presione Enter a todas las opciones"
+echo -e "${cor[4]}Press Enter to all options"
 sleep 3
 echo -e "$barra"
 openssl genrsa 1024 > stunnel.key
@@ -72,7 +72,7 @@ echo "OPTIONS="" " >> /etc/default/stunnel4
 echo "PPP_RESTART=0" >> /etc/default/stunnel4
 service stunnel4 restart > /dev/null 2>&1
 echo -e "$barra"
-echo -e "${cor[1]}INSTALADO CON EXITO"
+echo -e "${cor[1]}SUCCESSFULLY INSTALLED"
 echo -e "$barra"
 return 0
 }
