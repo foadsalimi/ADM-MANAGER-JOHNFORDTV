@@ -22,20 +22,20 @@ echo -e " \033[1;33m[\033[1;31m####################\033[1;33m] - \033[1;32m100%\
 sleep 1s
 }
 pamcrack () {
-echo -e "${cor[5]}LIBERANDO PASSWD PARA VURTL"
+echo -e "${cor[5]}RELEASING PASSWD FOR VURTL"
 sed -i 's/.*pam_cracklib.so.*/password sufficient pam_unix.so sha512 shadow nullok try_first_pass #use_authtok/' /etc/pam.d/common-password
-echo -e "${cor[5]}LISTO YA PUEDES CREAR USUARIOS"
+echo -e "${cor[5]}READY YOU CAN CREATE USERS"
 }
 
 shadow_fun () {
-echo -e " ${cor[7]}PERMISO ROOT VURTL ${cor[6]}[ALEX_DROID9_0_MX]\033[0m"
+echo -e " ${cor[7]}ROOT VURTL PERMIT ${cor[6]}[ALEX_DROID9_0_MX]\033[0m"
 echo -e "$barra"
 while true; do
-echo -e "${cor[4]} [1] > ${cor[5]}DESBLOQUEAR VURTL PARA CREAR USUARIOS"
-echo -e "${cor[4]} [2] > ${cor[0]}VOLVER"
-echo -e "${cor[4]} [0] > ${cor[0]}SALIR\n${barra}"
+echo -e "${cor[4]} [1] > ${cor[5]}UNLOCK VURTL TO CREATE USERS"
+echo -e "${cor[4]} [2] > ${cor[0]}RETURN"
+echo -e "${cor[4]} [0] > ${cor[0]}LEAVE\n${barra}"
 while [[ ${opx} != @(0|[1-2]) ]]; do
-echo -ne "${cor[0]}Digite una Opcion: \033[1;37m" && read opx
+echo -ne "${cor[0]}Type an Option: \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
 case $opx in
